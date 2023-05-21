@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Portfolio
+{% endblock %}
+
+{% block main %}
+    <table class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <th>Symbol</th>
+                <th>Name</th>
+                <th>Price of Share</th>
+                <th>Quantity of Shares Owned</th>
+                <th>Total Price of Shares</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in rows %}
+            <tr>
+                <td>{{row["symbol"]}}</td>
+                <td>{{name[row["symbol"]]}}</td>
+                <td>{{price[row["symbol"]]}}</td>
+                <td>{{row["quantity"]}}</td>
+                <td>{{total[row["symbol"]]}}</td>
+            </tr>
+            {% endfor %}
+            <tr>
+                <td colspan="4">Cash Balance</td>
+                <td>{{cash}}</td>
+            </tr>
+            <tr>
+                <td colspan="4">Grand Total</td>
+                <td>{{g_cash}}</td>
+            </tr>
+        </tbody>
+    </table>
+{% endblock %}
